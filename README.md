@@ -1,7 +1,7 @@
 A flutter application that will construct its UI based on the given JSON file.
 
 In this application, the file is obtained from HTTP request.\n
-Please change the URL accordingly in the function "fetchData" 
+Please change the URL accordingly in the function "fetchData" in initState()
 
 Referring to pubspec.yaml, you might need to install the libraries as per listed there.
 
