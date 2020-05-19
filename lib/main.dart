@@ -16,7 +16,6 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:image_picker_gallery_camera/image_picker_gallery_camera.dart';
 import 'package:file_picker_cross/file_picker_cross.dart';
-import 'package:mapbox_gl/mapbox_gl.dart';
 
 //untuk enable internet, kene refer pada androidmanifest.xml.
 //juga kene kasi "flutter clean" di terminal dulu sebelum buat benda ni
@@ -397,7 +396,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
     
     _fetchPermissionStatus();
-    getData = fetchData("http://192.168.1.161");
+    getData = fetchData("http://192.168.0.162");
   }
 
 
