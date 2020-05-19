@@ -1,17 +1,9 @@
-# april282020
+A flutter application that will construct its UI based on the given JSON file.
 
-A new Flutter application.
+In this application, the file is obtained from HTTP request.
+Please change the URL accordingly in the function "fetchData"
 
-## Getting Started
+Referring to pubspec.yaml, you might need to install the libraries as per listed there.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-"# FlutterFormJSON" 
+At the moment, the application is not fully completed yet.
+More update is required to make it fully operational.
