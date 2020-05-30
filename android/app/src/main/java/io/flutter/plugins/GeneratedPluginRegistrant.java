@@ -16,14 +16,17 @@ public final class GeneratedPluginRegistrant {
   public static void registerWith(@NonNull FlutterEngine flutterEngine) {
     ShimPluginRegistry shimPluginRegistry = new ShimPluginRegistry(flutterEngine);
     flutterEngine.getPlugins().add(new com.mr.flutter.plugin.filepicker.FilePickerPlugin());
+    flutterEngine.getPlugins().add(new io.flutter.plugins.firebaseauth.FirebaseAuthPlugin());
+    flutterEngine.getPlugins().add(new io.flutter.plugins.firebase.core.FirebaseCorePlugin());
       com.hemanthraj.fluttercompass.FlutterCompassPlugin.registerWith(shimPluginRegistry.registrarFor("com.hemanthraj.fluttercompass.FlutterCompassPlugin"));
       io.flutter.plugins.flutter_plugin_android_lifecycle.FlutterAndroidLifecyclePlugin.registerWith(shimPluginRegistry.registrarFor("io.flutter.plugins.flutter_plugin_android_lifecycle.FlutterAndroidLifecyclePlugin"));
       com.baseflow.flutter.plugin.geolocator.GeolocatorPlugin.registerWith(shimPluginRegistry.registrarFor("com.baseflow.flutter.plugin.geolocator.GeolocatorPlugin"));
     flutterEngine.getPlugins().add(new com.baseflow.googleapiavailability.GoogleApiAvailabilityPlugin());
+    flutterEngine.getPlugins().add(new io.flutter.plugins.googlesignin.GoogleSignInPlugin());
     flutterEngine.getPlugins().add(new io.flutter.plugins.imagepicker.ImagePickerPlugin());
-      com.mapbox.mapboxgl.MapboxMapsPlugin.registerWith(shimPluginRegistry.registrarFor("com.mapbox.mapboxgl.MapboxMapsPlugin"));
     flutterEngine.getPlugins().add(new io.flutter.plugins.pathprovider.PathProviderPlugin());
       com.baseflow.permissionhandler.PermissionHandlerPlugin.registerWith(shimPluginRegistry.registrarFor("com.baseflow.permissionhandler.PermissionHandlerPlugin"));
     flutterEngine.getPlugins().add(new com.tekartik.sqflite.SqflitePlugin());
+      com.ly.wifi.WifiPlugin.registerWith(shimPluginRegistry.registrarFor("com.ly.wifi.WifiPlugin"));
   }
 }
