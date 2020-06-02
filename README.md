@@ -11,5 +11,6 @@ Referring to pubspec.yaml, you might need to install the libraries as per listed
 At the moment, the application is not fully completed yet.
 More update is required to make it fully operational.
 1. Offline map
-2. User signup/login page
+2. User signup/login page (/)
 3. Database management
+4. User roles and access permissions
