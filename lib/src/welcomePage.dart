@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:april282020/src/loginPage.dart';
 import 'package:april282020/src/signup.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:april282020/src/errorHandler.dart';
+import 'dart:io';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class WelcomePage extends StatefulWidget {
   WelcomePage({Key key, this.title}) : super(key: key);
@@ -15,9 +19,18 @@ class WelcomePage extends StatefulWidget {
 class _WelcomePageState extends State<WelcomePage> {
   Widget _submitButton() {
     return InkWell(
-      onTap: () {
-        Navigator.push(
+      onTap: () async {
+
+        try {
+          final result = await InternetAddress.lookup('example.com');
+          if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+            Navigator.push(
             context, MaterialPageRoute(builder: (context) => LoginPage()));
+          }
+        } on SocketException catch (_) {
+          print('not connected');
+          connectionNotFoundOnStartUp(context);
+        }
       },
       child: Container(
         width: MediaQuery.of(context).size.width,
@@ -43,9 +56,18 @@ class _WelcomePageState extends State<WelcomePage> {
 
   Widget _signUpButton() {
     return InkWell(
-      onTap: () {
-        Navigator.push(
+      onTap: () async {
+
+        try {
+          final result = await InternetAddress.lookup('example.com');
+          if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+            Navigator.push(
             context, MaterialPageRoute(builder: (context) => SignUpPage()));
+          }
+        } on SocketException catch (_) {
+          print('not connected');
+          connectionNotFoundOnStartUp(context);
+        }
       },
       child: Container(
         width: MediaQuery.of(context).size.width,
@@ -115,8 +137,22 @@ class _WelcomePageState extends State<WelcomePage> {
     );
   }
 
+_checkConnectionOnStartUp() async{
+    try {
+      final result = await InternetAddress.lookup('example.com');
+      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+        print('connected');
+      }
+    } on SocketException catch (_) {
+      print('not connected');
+      connectionNotFoundOnStartUp(context);
+    }
+}
+
   @override
   Widget build(BuildContext context) {
+
+    _checkConnectionOnStartUp();
     return Scaffold(
       body:SingleChildScrollView(
         child:Container(

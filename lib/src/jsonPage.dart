@@ -1,8 +1,11 @@
 import 'dart:io';
+import 'package:path_provider/path_provider.dart';
 import 'package:json_table/json_table.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:april282020/src/database_helpers.dart';
 
 import 'package:http/http.dart' as http;
 import 'dart:math' as math;
@@ -404,10 +407,40 @@ class _MyHomePageState extends State<JsonPage> {
     );
     
     _fetchPermissionStatus();
-    getData = fetchData("https://onemango.my/flutterformjson.php");
+    getData = fetchData("https://onemango.my/flutterformjson.php?userId=123");
+
+    _save();
+  }
+
+  var isLoading = false;
+
+  _save() async {
+    setState(() {
+      isLoading = true;
+    });
+    final response =
+        await http.get("https://onemango.my/flutterformjson.php?userId=123");
+    if (response.statusCode == 200) {
+
+
+      final prefs = await SharedPreferences.getInstance();
+      final key = 'my_json';
+      final value = json.decode(response.body);
+
+      print(value);
+      prefs.setString(key, json.encode(value));
+      print('saved $value');
+
+      setState(() {
+        isLoading = false;
+      });
+    } else {
+      throw Exception('Failed to load json');
+    }
   }
 
 
+      
   void checkBelonging(var type, var page, var titleName, var newValue, var secondLayerExist, var navBarName){
     if(secondLayerExist == true){
       for(int index = 0; index < this.pages[_index][navBarName].length; index++){
