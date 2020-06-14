@@ -86,6 +86,9 @@ class _LoginPageState extends State<LoginPage> {
 
       var datauser = json.decode(response.body);
 
+      String imageUrl;
+
+      // print(imageUrl1);
       print(datauser);
       if(datauser.length==0){
         setState(() {
@@ -93,9 +96,12 @@ class _LoginPageState extends State<LoginPage> {
             });
       }else{
         if(datauser['message']=='User was logged in successfully!'){
+          
+          loginManual(datauser).whenComplete(() {
 
-          Navigator.push(
-          context, MaterialPageRoute(builder: (context) => JsonPage(username: datauser['username'],email: datauser['email'], imageUrl:'http://www.bbk.ac.uk/mce/wp-content/uploads/2015/03/8327142885_9b447935ff.jpg')));
+            Navigator.push(
+            context, MaterialPageRoute(builder: (context) => JsonPage(username: datauser['username'],email: datauser['email'], imageUrl:imageUrl)));
+          });
         }else if(datauser['message']=='Invalid Password!'){
           credentialFalse(context);
           // Navigator.pushReplacementNamed(context, '/MemberPage');
@@ -119,6 +125,16 @@ class _LoginPageState extends State<LoginPage> {
 
 
     // return datauser;
+  }
+
+
+  Future<String> loginManual(datauser) async {
+
+    assert(datauser['photo'] != null);
+
+    imageUrl = datauser['photo'];
+
+    return 'login succeeded';
   }
 
   passwordInput(){
