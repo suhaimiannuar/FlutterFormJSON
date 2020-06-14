@@ -18,3 +18,6 @@ More update is required to make it fully operational.
 2. User signup/login page (/)
 3. Database management
 4. User roles and access permissions
+5. Save JSON file (/)
+6. Read JSON file
+5. No connection error handling (/)
