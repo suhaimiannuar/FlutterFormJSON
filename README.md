@@ -1,4 +1,6 @@
-A flutter application that will construct its UI based on the given JSON file.
+<h1>Flutter Form JSON</h1>
+
+<b>A flutter application that will construct its UI based on the given JSON file.</b>
 
 You can get the example of JSON file in the index.php file.
 
@@ -20,4 +22,5 @@ More update is required to make it fully operational.
 4. User roles and access permissions
 5. Save JSON file (/)
 6. Read JSON file
-5. No connection error handling (/)
+7. No connection error handling (/)
+8. User registration request. Admin approval 
